@@ -12,20 +12,12 @@ import { DataModel } from './data-model';
 export class AppComponent implements OnInit {
   title = 'test-console';
   public data: DataModel;
-  constructor(@Inject(PLATFORM_ID) private platformId: any, @Inject(DOCUMENT) private document: any, 
+  constructor(
     private callServerService: CallServerService
   ) { }
 
   ngOnInit() {
     this.getData();
-  
-    if (!isPlatformBrowser(this.platformId)) {
-        let bases = this.document.getElementsByTagName('base');
-
-        if (bases.length > 0) {
-            bases[0].setAttribute('href', environment.baseHref);
-        }
-    }
 }
 
     public getData() {
